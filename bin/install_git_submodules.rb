@@ -12,6 +12,7 @@ config.get_params.each do |param|
   puts "-----> Installing submodule #{c["path"]} #{c["branch"]}"
   branch_flag = c["branch"] ? "-b #{c['branch']}" : ""
   build_path = "#{ENV['BUILD_DIR']}/#{c["path"]}"
+  puts "       Setting git URL to git clone -q --single-branch #{ENV['GIT_REPO_URL']} #{branch_flag} #{build_path}"
   `git clone -q --single-branch #{ENV['GIT_REPO_URL']} #{branch_flag} #{build_path}`
   if c.key?("revision")
     puts "       Setting submodule revision to #{c["revision"]}"
