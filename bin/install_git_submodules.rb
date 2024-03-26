@@ -14,7 +14,6 @@ config.get_params.each do |param|
   build_path = "#{ENV['BUILD_DIR']}/#{c["path"]}"
   puts "       Setting URL clone #{ENV['WYZYR_TOKEN']}"
   `git clone -q --single-branch #{c["url"]} #{branch_flag} #{build_path}`
-  puts "       Setting submodule URL to #{c["url"]}"
   if c.key?("revision")
     puts "       Setting submodule revision to #{c["revision"]}"
     Dir.chdir(build_path) do
