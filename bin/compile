@@ -44,6 +44,6 @@ GIT_TOKEN=$(<"$ENV_DIR/GIT_TOKEN")
 
 # replace SSH urls with HTTPS urls and include the token
 echo "-----> Redirecting submodules to HTTPS"
-sed -i -e "s/git@github.com:/https:\/\/$GIT_TOKEN@github.com\//" ./.gitmodules
+sed -i -e "s/git@github.com:/https:\/\/$GIT_TOKEN@github.com\//" $BUILD_DIR/.gitmodules
 
 ruby $bp_dir/bin/install_git_submodules.rb
