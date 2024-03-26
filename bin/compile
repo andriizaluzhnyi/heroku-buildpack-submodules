@@ -3,6 +3,7 @@
 set -euo pipefail
 
 export BUILD_DIR=$1
+export ENV_DIR="$3"
 bp_dir=$(cd $(dirname $0); cd ..; pwd)
 
 if [ ! -f "$BUILD_DIR/.gitmodules" ]; then
