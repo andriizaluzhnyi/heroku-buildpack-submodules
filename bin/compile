@@ -38,4 +38,8 @@ export GEM_PATH=$bp_dir/vendor/gems
 echo "-----> Installing parseconfig gem"
 gem install 'parseconfig'
 
+# replace SSH urls with HTTPS urls and include the token
+echo "-----> Redirecting submodules to HTTPS"
+sed -i -e "s/git@github.com:/https:\/\/$GIT_TOKEN@github.com\//" ./.gitmodules
+
 ruby $bp_dir/bin/install_git_submodules.rb
